@@ -1,0 +1,16 @@
+{
+  "name": "2026cv-js",
+  "version": "1.0.0",
+  "description": "Personal CV resume page with interactive features",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 8080 -o"
+  },
+  "keywords": [
+    "resume",
+    "cv",
+    "portfolio"
+  ],
+  "author": "",
+  "license": "MIT"
+}

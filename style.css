@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    background-color: #ffffff;
+    position: relative;
+}
+
+/* 左上角淺黃色背景區塊 */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background-color: #FFF9E6;
+    border-radius: 0 0 100% 0;
+    z-index: 0;
+}
+
+.left-column,
+.right-column {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+/* 個人資訊區塊 */
+.profile-section {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    border: 5px solid #ffffff;
+    margin: 0 auto;
+    /* 使用實際的人像圖片，請確認路徑與檔名是否正確 */
+    background-image: url('../image.webp');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.name {
+    font-size: 32px;
+    font-weight: bold;
+    color: #004B97;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.position {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+}
+
+/* 區塊標題 */
+.section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    font-size: 18px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin-bottom: 15px;
+}
+
+/* 聯絡方式 */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+/* 關於我 */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.clickable-text {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.8;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.clickable-text:hover {
+    color: #004B97;
+}
+
+.clickable-text.active {
+    color: #004B97;
+}
+
+/* 技能列表 */
+.skills-list,
+.goals-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills-list li,
+.goals-list li {
+    padding: 5px 0;
+    padding-left: 20px;
+    position: relative;
+    font-size: 14px;
+}
+
+.skills-list li::before,
+.goals-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #333;
+}
+
+/* 教育區塊 */
+.education-item {
+    margin-bottom: 25px;
+}
+
+.school-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.major {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.description-wrapper {
+    position: relative;
+}
+
+.expandable-text {
+    margin-bottom: 0;
+}
+
+.see-all-link {
+    color: #004B97;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.see-all-link:hover {
+    color: #003366;
+}
+
+.full-text {
+    display: none;
+    margin-top: 10px;
+}
+
+.full-text.expanded {
+    display: block;
+    animation: expandDown 0.3s ease;
+}
+
+.expandable-text.collapsed {
+    animation: collapseUp 0.3s ease;
+}
+
+@keyframes expandDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+    }
+}
+
+@keyframes collapseUp {
+    from {
+        opacity: 1;
+        max-height: 500px;
+    }
+    to {
+        opacity: 0;
+        max-height: 0;
+    }
+}
+
+/* 里程碑區塊 */
+.milestone-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    gap: 20px;
+}
+
+.milestone-content {
+    flex: 1;
+}
+
+.milestone-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.milestone-date {
+    font-size: 14px;
+    color: #666;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container::before {
+        width: 200px;
+        height: 200px;
+    }
+
+    .milestone-item {
+        flex-direction: column;
+    }
+
+    .milestone-date {
+        align-self: flex-start;
+    }
+}
